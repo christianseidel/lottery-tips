@@ -2,7 +2,6 @@ package lottery;
 
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @CrossOrigin
 @RequestMapping("/api")
@@ -16,6 +15,6 @@ public class TipController {
 
     @GetMapping("/tips")
     public String sagWas() {
-        return "Hallo! Hier fumpt's...";
+        return "Hallo! Hier fummpt es...";
     }
 }
