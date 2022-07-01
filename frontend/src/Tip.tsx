@@ -6,8 +6,8 @@ function Tip() {
     const [numberOfTips, setNumberOfTips] = useState('eins')
     const [tipsOfLotto, setTipsOfLotto] = useState({} as TipsOfLotto)
 
+    let fields = 0;
 
-    let fields = 33
     const getTipOfLotto = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         fetch(`${process.env.REACT_APP_BASE_URL}/api/tips/${numberOfTips}`, {
@@ -22,6 +22,8 @@ function Tip() {
             .then((responseBody: TipsOfLotto) => setTipsOfLotto(responseBody));
     };
 
+    let counter = false;
+    let last : number = tipsOfLotto.mainNumbers[0][5];
 
     return (
         <div>
@@ -33,9 +35,8 @@ function Tip() {
                 <p><button type="submit"> &#10004; abschicken</button></p>
             </form>
 
-            <p>{tipsOfLotto.mainNumbers}</p>
-            <p>{tipsOfLotto.bonusNumber}</p>
-
+            <p>{tipsOfLotto.mainNumbers.map(setOfNumbers => <p>Zahlen: {setOfNumbers.map(singleNumber => <span>{singleNumber}{(singleNumber===setOfNumbers[5]) ? "" : ","} </span>) }</p>)}</p>
+            <p>Zusatzzahl: {tipsOfLotto.bonusNumber}</p>
         </div>
     );
 }

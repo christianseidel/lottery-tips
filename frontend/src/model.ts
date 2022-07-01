@@ -1,4 +1,4 @@
 export interface TipsOfLotto {
-    mainNumbers: number;
+    mainNumbers: number[][];
     bonusNumber: number;
 }
