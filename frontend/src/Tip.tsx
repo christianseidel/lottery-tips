@@ -22,10 +22,7 @@ function Tip() {
             .then((responseBody: TipsOfLotto) => setTipsOfLotto(responseBody));
     };
 
-    let counter = false;
-    let last : number = tipsOfLotto.mainNumbers[0][5];
-
-    return (
+       return (
         <div>
             <p>Bitte geben Sie die Anzahl der gewünschten Lottofelder ein:</p>
 
@@ -35,7 +32,10 @@ function Tip() {
                 <p><button type="submit"> &#10004; abschicken</button></p>
             </form>
 
-            <p>{tipsOfLotto.mainNumbers.map(setOfNumbers => <p>Zahlen: {setOfNumbers.map(singleNumber => <span>{singleNumber}{(singleNumber===setOfNumbers[5]) ? "" : ","} </span>) }</p>)}</p>
+            <p>{(tipsOfLotto.mainNumbers != null)
+                ? (tipsOfLotto.mainNumbers.map(setOfNumbers => <p>Zahlen: {setOfNumbers.map(singleNumber => <span>{singleNumber}{(singleNumber===setOfNumbers[5]) ? "" : ","} </span>) }</p>))
+                : <span> Anzahl Lottofelder = 0 </span> }</p>
+
             <p>Zusatzzahl: {tipsOfLotto.bonusNumber}</p>
         </div>
     );
