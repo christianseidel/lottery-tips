@@ -24,7 +24,7 @@ function TipOfLotto() {
 
        return (
         <div>
-            <p>Lotto: Bitte geben Sie die Anzahl der gewünschten Lottofelder ein:</p>
+            <p>Lotto: Bitte geben Sie die Anzahl der gewünschten Felder ein:</p>
 
             <form onSubmit={ev => getTipOfLotto(ev)}>
                 <input type="number" placeholder="enter a number" value={numberOfTips} autoFocus required
