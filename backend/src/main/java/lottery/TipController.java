@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.*;
 public class TipController {
     TipService service = new TipService();
 
-    @PostMapping("/tips/{id}")
+    @PostMapping("/lotto/{id}")
     public TipOfLotto getTipOfLotto(@PathVariable int id) {
         return service.createTipOfLotto(id);
+    }
+
+    @PostMapping("/eurojackpot/{id}")
+    public TipOfEurojackpot[] getTipOfEurojackpot(@PathVariable int id) {
+        return service.createTipOfEurojackpot(id);
     }
 
     @GetMapping("/tips")
